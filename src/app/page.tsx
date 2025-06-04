@@ -1,103 +1,49 @@
-import Image from "next/image";
+import Nav from "@/components/nav";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <Nav />
+      <div className="h-fit w-full mx-auto relative">
+        {/* Main content card - responsive positioning */}
+        <div className="w-full max-w-[350px] h-auto bg-main 
+                       lg:absolute lg:right-0 lg:top-[25px] lg:w-[350px] lg:h-[350px]
+                       mx-auto lg:mx-0 mb-6 lg:mb-0
+                       rounded-xl text-center p-6 lg:p-10 flex items-center flex-col">
+          <h1 className="font-bold text-[20px] sm:text-[24px] lg:text-[27px] leading-tight">
+            Waar kunnen we je<br />mee helpen?
+          </h1>
+          
+          {/* Button container with responsive spacing */}
+          <div className="mt-4 lg:mt-3 space-y-3 w-full">
+            <a href="./">
+              <button className="bg-blue-400 w-full max-w-[320px] h-[50px] shadow rounded-full px-4 mb-4">
+                <p className="text-white text-[12px] sm:text-[13px] font-bold">beschermen tegen een cyberaanval</p>
+                <p className="text-[#CCCCD1] text-[9px] sm:text-[11px]">bescherm gevoelige informatie tegen cybercriminelen</p>
+              </button>
+            </a>
+            
+            <a href="./herstel">
+              <button className="bg-white w-full max-w-[320px] h-[50px] shadow rounded-full px-4 mb-4">
+                <p className="text-blue-400 text-[12px] sm:text-[13px] font-bold">Herstellen na een cyberaanval</p>
+                <p className="text-[#CCCCD1] text-[8px] sm:text-[10px]">Wat te doen als uw bedrijf is getroffen door cybercriminelen</p>
+              </button>
+            </a>
+            
+            <a href="./aanmelden">
+              <button className="bg-white w-full max-w-[320px] h-[50px] shadow rounded-full px-4 mb-4">
+                <p className="text-blue-400 text-[12px] sm:text-[13px] font-bold">Aanmelden voor een hackathon</p>
+                <p className="text-[#CCCCD1] text-[8px] sm:text-[10px]">Wat te doen als uw bedrijf is getroffen door cybercriminelen</p>
+              </button>
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        
+        {/* Background image - responsive sizing */}
+        <div className="bg-slate-50 bg-[url(/header.jpg)] bg-cover bg-center rounded-2xl 
+                       w-full h-[250px] sm:h-[300px] md:h-[350px] lg:w-[800px] lg:h-[400px] 
+                       mx-auto lg:mx-0 lg:m-6" />
+      </div>
     </div>
   );
 }
