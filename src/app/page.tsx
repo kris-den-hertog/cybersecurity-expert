@@ -1,4 +1,5 @@
 import Nav from "@/components/nav";
+import Wizard from "@/components/wizard";
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
                        w-full h-[250px] sm:h-[300px] md:h-[350px] lg:w-[800px] lg:h-[400px] 
                        mx-auto lg:mx-0 lg:m-6" />
       </div>
+      <Wizard/>
     </div>
   );
 }
