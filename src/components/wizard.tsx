@@ -14,12 +14,11 @@ export default function Wizard() {
     const [selectedRole, setSelectedRole] = React.useState("");
     const [selectedAction, setSelectedAction] = React.useState("");
     const [selectedGoal, setSelectedGoal] = React.useState("");
-      const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(true);
 
-  function hide() {
-    setVisible(false);
-  }
-
+    function hide() {
+        setVisible(false);
+    }
 
     const [response, setResponse] = React.useState("");
 
@@ -65,30 +64,30 @@ export default function Wizard() {
     }
 
     return (
-        [
-            <div className="bg-[#EBFAFF] rounded-2xl py-6 px-7 text-center relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+            <div className="bg-[#EBFAFF] rounded-2xl py-6 px-4 sm:px-7 text-center relative">
                 <div
-                    className={`w-full h-full bg-sky-50/80 backdrop-blur-xl text-center flex flex-col items-center justify-center p-6 absolute transition-opacity duration-300 ${
-                      visible ? "block" : "hidden"
+                    className={`absolute inset-0 bg-sky-50/80 backdrop-blur-xl rounded-2xl text-center flex flex-col items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${
+                      visible ? "opacity-100" : "opacity-0 pointer-events-none"
                     }`}
                   >
-                    <h2 className="font-bold text-xl">
+                    <h2 className="font-bold text-lg sm:text-xl mb-4">
                       Abonneer op ons Plus abbonement om uzelf aan te melden
                       voor de hackathon.
                     </h2>
                     <button
                       onClick={hide}
-                      className="bg-blue-400 py-3 px-6 rounded-full font-bold text-white mt-6"
+                      className="bg-blue-400 py-3 px-6 rounded-full font-bold text-white mt-2"
                     >
                       Abonneer
                     </button>
                   </div>
-                <h1 className="font-bold text-3xl">In drie stappen op weg</h1>
+                <h1 className="font-bold text-2xl sm:text-3xl mb-6">In drie stappen op weg</h1>
                 <br />
-                <p>
-                    Als{" "}
+                <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-center gap-2 sm:gap-1 text-sm sm:text-base">
+                    <span className="hidden sm:inline">Als</span>
                     <select
-                        className="mx-2 bg-white p-2 rounded-md"
+                        className="w-full sm:w-auto sm:mx-2 bg-white p-2 sm:p-3 rounded-md"
                         value={selectedRole}
                         onChange={(e) => setSelectedRole(e.target.value)}
                     >
@@ -99,9 +98,9 @@ export default function Wizard() {
                             </option>
                         ))}
                     </select>
-                    wil ik{" "}
+                    <span className="hidden sm:inline">wil ik</span>
                     <select
-                        className="mx-2 bg-white p-2 rounded-md"
+                        className="w-full sm:w-auto sm:mx-2 bg-white p-2 sm:p-3 rounded-md"
                         value={selectedAction}
                             onChange={(e) => setSelectedAction(e.target.value)}
                     >
@@ -112,9 +111,9 @@ export default function Wizard() {
                             </option>
                         ))}
                     </select>
-                    zodat ik{" "}
+                    <span className="hidden sm:inline">zodat ik</span>
                     <select
-                        className="mx-2 bg-white p-2 rounded-md"
+                        className="w-full sm:w-auto sm:mx-2 bg-white p-2 sm:p-3 rounded-md"
                         value={selectedGoal}
                         onChange={(e) => setSelectedGoal(e.target.value)}
                     >
@@ -125,7 +124,7 @@ export default function Wizard() {
                             </option>
                         ))}
                     </select>
-                    <button className="bg-blue-500 text-white p-2 rounded-md" onClick={() => {
+                    <button className="w-full sm:w-auto bg-blue-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-md mt-4 sm:mt-0" onClick={() => {
                         const roleId = dropDownMenuOptions.roles.indexOf(selectedRole);
                         const actionId = dropDownMenuOptions.actions.indexOf(selectedAction);
                         const goalId = dropDownMenuOptions.specifiek.indexOf(selectedGoal);
@@ -154,12 +153,14 @@ export default function Wizard() {
                             .catch(error => console.error('Error:', error));
                     }}>Volgende</button>
 
-                </p>
-            </div>,
-            <div
-                dangerouslySetInnerHTML={{ __html: response }}
-                className="rounded-4xl py-6 px-7 text-left drop-shadow-lg bg-white m-10"
-            />
-        ]
+                </div>
+            </div>
+            {response && (
+                <div
+                    dangerouslySetInnerHTML={{ __html: response }}
+                    className="rounded-2xl py-4 sm:py-6 px-4 sm:px-7 text-left drop-shadow-lg bg-white mt-6 sm:mt-10"
+                />
+            )}
+        </div>
     );
 }
