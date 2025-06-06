@@ -19,8 +19,8 @@ export default function Home() {
           <div className="mt-4 lg:mt-3 space-y-3 w-full">
             <a href="./vragenlijst">
               <button className="bg-blue-400 w-full max-w-[320px] h-[50px] shadow rounded-full px-4 mb-4">
-                <p className="text-white text-[12px] sm:text-[13px] font-bold">beschermen tegen een cyberaanval</p>
-                <p className="text-[#CCCCD1] text-[9px] sm:text-[11px]">bescherm gevoelige informatie tegen cybercriminelen</p>
+                <p className="text-white text-[12px] sm:text-[13px] font-bold">Check je beveiliging</p>
+                <p className="text-[#CCCCD1] text-[9px] sm:text-[11px]">Vul een kort vragenlijst in en ontdek hoe cyber veilig jouw bedrijf is</p>
               </button>
             </a>
 
