@@ -28,10 +28,10 @@ export default function Home() {
     const progress = ((questionId + 1) / questions.length) * 100;
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white max-w-[1200px] mx-auto px-4">
             <Nav />
 
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
                 {/* Back button */}
                 <div className="mb-6">
                     <a href="../" className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200">

@@ -64,7 +64,7 @@ export default function Wizard() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-10">
             <div className="bg-[#EBFAFF] rounded-2xl py-6 px-4 sm:px-7 text-center relative">
                 <div
                     className={`absolute inset-0 bg-sky-50/80 backdrop-blur-xl rounded-2xl text-center flex flex-col items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${
@@ -158,7 +158,7 @@ export default function Wizard() {
             {response && (
                 <div
                     dangerouslySetInnerHTML={{ __html: response }}
-                    className="rounded-2xl py-4 sm:py-6 px-4 sm:px-7 text-left drop-shadow-lg bg-white mt-6 sm:mt-10"
+                    className="rounded-2xl py-4 sm:py-6 px-4 sm:px-7 text-left drop-shadow-lg bg-white mb-10 sm:mt-10"
                 />
             )}
         </div>
