@@ -1,6 +1,8 @@
 'use client'
 import React from "react";
 import axios from "axios";
+import { useState } from "react";
+
 
 const api = axios.create({
 	baseURL: "https://succulent-celestial-wallet.glitch.me/",
@@ -12,6 +14,12 @@ export default function Wizard() {
     const [selectedRole, setSelectedRole] = React.useState("");
     const [selectedAction, setSelectedAction] = React.useState("");
     const [selectedGoal, setSelectedGoal] = React.useState("");
+      const [visible, setVisible] = useState(true);
+
+  function hide() {
+    setVisible(false);
+  }
+
 
     const [response, setResponse] = React.useState("");
 
@@ -58,7 +66,23 @@ export default function Wizard() {
 
     return (
         [
-            <div className="bg-[#EBFAFF] rounded-2xl py-6 px-7 text-center">
+            <div className="bg-[#EBFAFF] rounded-2xl py-6 px-7 text-center relative">
+                <div
+                    className={`w-full h-full bg-sky-50/80 backdrop-blur-xl text-center flex flex-col items-center justify-center p-6 absolute transition-opacity duration-300 ${
+                      visible ? "block" : "hidden"
+                    }`}
+                  >
+                    <h2 className="font-bold text-xl">
+                      Abonneer op ons Plus abbonement om uzelf aan te melden
+                      voor de hackathon.
+                    </h2>
+                    <button
+                      onClick={hide}
+                      className="bg-blue-400 py-3 px-6 rounded-full font-bold text-white mt-6"
+                    >
+                      Abonneer
+                    </button>
+                  </div>
                 <h1 className="font-bold text-3xl">In drie stappen op weg</h1>
                 <br />
                 <p>
