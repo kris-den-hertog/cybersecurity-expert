@@ -5,9 +5,9 @@ import { useState } from "react";
 
 
 const api = axios.create({
-	baseURL: "https://succulent-celestial-wallet.glitch.me/",
-	// baseURL: "http://localhost:3000/",
-	withCredentials: true,
+    baseURL: "https://succulent-celestial-wallet.glitch.me/",
+    // baseURL: "http://localhost:3000/",
+    withCredentials: true,
 });
 
 export default function Wizard() {
@@ -64,24 +64,23 @@ export default function Wizard() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
             <div className="bg-[#EBFAFF] rounded-2xl py-6 px-4 sm:px-7 text-center relative">
                 <div
-                    className={`absolute inset-0 bg-sky-50/80 backdrop-blur-xl rounded-2xl text-center flex flex-col items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${
-                      visible ? "opacity-100" : "opacity-0 pointer-events-none"
-                    }`}
-                  >
+                    className={`absolute inset-0 bg-sky-50/80 backdrop-blur-xl rounded-2xl text-center flex flex-col items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"
+                        }`}
+                >
                     <h2 className="font-bold text-lg sm:text-xl mb-4">
-                      Abonneer op ons Plus abbonement om uzelf aan te melden
-                      voor de hackathon.
+                        Abonneer op ons Plus abbonement om uzelf aan te melden
+                        voor de hackathon.
                     </h2>
                     <button
-                      onClick={hide}
-                      className="bg-blue-400 py-3 px-6 rounded-full font-bold text-white mt-2"
+                        onClick={hide}
+                        className="bg-blue-400 py-3 px-6 rounded-full font-bold text-white mt-2"
                     >
-                      Abonneer
+                        Abonneer
                     </button>
-                  </div>
+                </div>
                 <h1 className="font-bold text-2xl sm:text-3xl mb-6">In drie stappen op weg</h1>
                 <br />
                 <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-center gap-2 sm:gap-1 text-sm sm:text-base">
@@ -102,7 +101,7 @@ export default function Wizard() {
                     <select
                         className="w-full sm:w-auto sm:mx-2 bg-white p-2 sm:p-3 rounded-md"
                         value={selectedAction}
-                            onChange={(e) => setSelectedAction(e.target.value)}
+                        onChange={(e) => setSelectedAction(e.target.value)}
                     >
                         <option value="">Kies een actie</option>
                         {dropDownMenuOptions.actions.map((action) => (
@@ -124,7 +123,7 @@ export default function Wizard() {
                             </option>
                         ))}
                     </select>
-                    <button className="w-full sm:w-auto bg-blue-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-md mt-4 sm:mt-0" onClick={() => {
+                    <a href="#response"><button className="w-full sm:w-auto bg-blue-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-md mt-4 sm:mt-0" onClick={() => {
                         const roleId = dropDownMenuOptions.roles.indexOf(selectedRole);
                         const actionId = dropDownMenuOptions.actions.indexOf(selectedAction);
                         const goalId = dropDownMenuOptions.specifiek.indexOf(selectedGoal);
@@ -151,14 +150,15 @@ export default function Wizard() {
                                     .replace(/\*/g, ''))
                             })
                             .catch(error => console.error('Error:', error));
-                    }}>Volgende</button>
+                    }} >Volgende</button></a>
 
                 </div>
             </div>
             {response && (
                 <div
+                    id="response"
                     dangerouslySetInnerHTML={{ __html: response }}
-                    className="rounded-2xl py-4 sm:py-6 px-4 sm:px-7 text-left drop-shadow-lg bg-white mt-6 sm:mt-10"
+                    className="rounded-2xl py-4 sm:py-6 px-4 sm:px-7 text-left drop-shadow-lg bg-white mt-6 sm:mb-20 mb-15"
                 />
             )}
         </div>
